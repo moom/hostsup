@@ -11,3 +11,5 @@ Please do the following:
 
 Once you’ve changed your network, you need make sure your VM has got an IP address, then run:
 $sh ~/bin/hostsup.sh
+
+**The predefined name of the VM is 'HubVM', if your VM is different, please update the 'hubvm_name' variable in the script.
