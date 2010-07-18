@@ -1,0 +1,13 @@
+Script Name: hostsup.sh
+Purpose: To save some time setting up your hosts file when you switching to a different network.
+Note: You’ll be asked for password.
+
+Please do the following:
+1. Download it and put it into your home directory, eg. ~/bin
+2. $cd ~/bin 
+3. $chmod 600 hostsup.sh 
+4. Start your VM
+5. $sh hostsup.sh
+
+Once you’ve changed your network, you need make sure your VM has got an IP address, then run:
+$sh ~/bin/hostsup.sh
