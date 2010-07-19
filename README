@@ -12,4 +12,22 @@ Please do the following:
 Once you’ve changed your network, you need make sure your VM has got an IP address, then run:
 $sh ~/bin/hostsup.sh
 
-**The predefined name of the VM is 'HubVM', if your VM is different, please update the 'hubvm_name' variable in the script.
+The following are two basic scenarios that you will need this script:
+A> You didn't finish my work, and you carry your MacBook home to finish it.
+   ##In this scenario, you didn't log out and you still have everything running.
+   1. Go to the command prompt of your Windows VM (HubVM).
+   2. Type in 'ipconfig /renew' and hit enter. If it doesn't get you an IP address on your home network, do it again until you get one.
+   3. Open a Terminal in you MacBook, type in 'sh ~/bin/hostsup.sh' and hit enter.
+   4. Enter your login password, then your hosts file should be updated.
+   5. Now your VM is connectable from your MacBook again.
+
+B> I fnished my work at home, turned my MacBook off and go to work the next morning.
+   ##In this scenario, your have shutdown everything, and you have to reboot your HubVM when you got into the office.
+   1. After your VM rebooted, it'll get a new REA IP network IP address.
+   2. Open a Terminal in you MacBook, type in 'sh ~/bin/hostsup.sh' and hit enter.
+   3. Enter your login password, then your hosts file should be updated.
+   4. Now your VM is connectable from your MacBook again.
+
+
+**Make sure your VM got an valid IP address on the network you are on.
+**The predefined name of the VM is 'HubVM', if your VM is different, please update the 'hubvm_name' variable in the script. The name of the VM is the bold string you see on the left pane of the VirtualBox application.
