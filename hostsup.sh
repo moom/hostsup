@@ -1,5 +1,9 @@
 #! /bin/sh
 
+hubvm_name="HubVM"
+home_dir="/Users/felix_wang"
+
+
 #This function is to update the hosts file.
 update_host_file()
 {
@@ -24,7 +28,6 @@ update_host_file()
 vbox_hubvm_running="$(VBoxManage list runningvms | grep -i 'hubvm')"
 if [ "$vbox_hubvm_running" != "" ]; then
 	echo "Your VM is running in VirtualBox."
-	hubvm_name="HubVM"
 	hubvm_ip_string="$(VBoxManage guestproperty enumerate $hubvm_name | grep -i 'ip')"
 	hubvm_ip_key_string="$(echo $hubvm_ip_string | cut -d',' -f1 | sed 's/^ *\(.*\) *$/\1/')"
 	hubvm_ip_key="$(echo $hubvm_ip_key_string | cut -d':' -f2 | sed 's/^ *\(.*\) *$/\1/')"
@@ -41,7 +44,6 @@ fi;
 fusion_hubvm_running="$(/Library/Application\ Support/VMware\ Fusion/vmrun list | grep -i 'hubvm')"
 if [ "$fusion_hubvm_running" != "" ]; then
 	echo "Your VM is running in VMWare Fusion."
-	home_dir="/Users/felix_wang"
 
 	#Put IP Address into a file on C Drive:
 	/Library/Application\ Support/VMware\ Fusion/vmrun -T ws -h "$home_dir/Documents/Virtual\ Machines.localized/hubvm" -gu Administrator -gp hub runProgramInGuest "$home_dir/Documents/Virtual Machines.localized/hubvm.vmwarevm/hubvm.vmx" cmd.exe "/c C:\WINDOWS\system32\ipconfig.exe>C:\vmip.txt"
